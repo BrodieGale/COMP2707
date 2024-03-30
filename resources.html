@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Resources | Computer Science Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Computer Science Hub | Tutorials</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="resources.html">Student Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Student Resources</h2>
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="fileToUpload">Select file to upload:</label>
+        <input type="file" name="fileToUpload" id="fileToUpload" />
+        <input type="submit" value="Upload File" name="submit" />
+      </form>
+
+        <h3>Uploaded Files</h3>
+        <ul id="uploadedFilesList">
+          
+        </ul>
+    </main>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  fetch("list_files.php")
+    .then((response) => response.json())
+    .then((data) => {
+      const list = document.getElementById("uploadedFilesList");
+      data.forEach((file) => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = `uploads/${file}`;
+        link.textContent = file;
+        item.appendChild(link);
+        list.appendChild(item);
+      });
+    })
+    .catch((error) => console.log("Error fetching file list:", error));
+});
+</script>

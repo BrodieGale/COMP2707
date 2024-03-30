@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #153243;
+  background-color: #f4f9e9;
+}
+
+header {
+  background-color: #284b63;
+  color: #f4f9e9;
+  padding: 20px 10%;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f4f9e9;
+  transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: #b4b8ab;
+}
+
+main {
+  text-align: center;
+  padding: 20px 10%;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f9e9;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+}
+
+#carousel {
+  position: relative;
+  max-width: 100%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.carousel-items {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-item img {
+  border-radius: 5px;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.carousel-description {
+  background-color: #eef0eb;
+  color: #153243;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.carousel-description h3,
+.carousel-description p {
+  margin: 10px 0;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #153243;
+  color: #f4f9e9;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #284b63;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+#tutorialsList div {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+#tutorialsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.tutorial-card {
+  background-color: #f9f9f9;
+  border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tutorial-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.tutorial-card h3 {
+  margin: 10px 0;
+}
+
+.tutorial-card p {
+  margin: 0 0 20px;
+}
+
+.tutorial-card a {
+  color: #007bff;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.tutorial-card a:hover {
+  text-decoration: underline;
+}
+
+form {
+  background-color: #b4b8ab;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  margin: 20px auto;
+}
+
+form label,
+form input[type="submit"] {
+  display: block;
+  margin: 10px 0;
+}
+
+input[type="file"] {
+  border: 1px solid #ccc;
+  display: block;
+  padding: 6px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #005f73;
+  color: #ffffff;
+  border: 0;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+  background-color: #024e5a;
+}
+
+#uploadedFilesList {
+  list-style-type: none;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+
+#uploadedFilesList li {
+  padding: 10px;
+}
+
+#uploadedFilesList a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#uploadedFilesList a:hover {
+  text-decoration: underline;
+}
+
+form#contactForm > div:last-child {
+  text-align: center;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-submit-button button:hover {
+  background-color: #45a049;
+}
+
+form,
+.form-submit-button {
+  display: block;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: #153243;
+  color: #f4f9e9;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}

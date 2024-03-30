@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tutorials | Computer Science Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Computer Science Hub | Tutorials</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="resources.html">Student Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Tutorials</h2>
+      <input type="text" id="searchBar" placeholder="Search tutorials..." />
+      <div id="tutorialsList">
+
+      </div>
+    </main>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tutorials = [
+      {
+        title: "Introduction to Computer Science",
+        description:
+          "Learn the basics of computer science and programming concepts.",
+        url: "https://www.linkedin.com/learning/computer-science-principles-programming/welcome",
+        image: "image1.png",
+      },
+      {
+        title: "Data Structures and Algorithms",
+        description:
+          "Explore fundamental data structures and algorithms used in computer science.",
+        url: "https://www.linkedin.com/learning/python-data-structures-and-algorithms/python-data-structures-and-algorithms-in-action",
+        image: "image2.png",
+      },
+      {
+        title: "Web Development",
+        description:
+          "Master the skills required for building dynamic and interactive websites.",
+        url: "https://www.linkedin.com/learning/succeeding-in-web-development-full-stack-and-front-end/becoming-a-web-developer",
+        image: "image3.png",
+      },
+      {
+        title: "Database Management Systems",
+        description:
+          "Learn how to design and manage databases for efficient data storage and retrieval.",
+        url: "https://www.linkedin.com/learning/database-foundations-intro-to-databases/an-introduction-to-database-foundations",
+        image: "image4.png",
+      },
+      {
+        title: "Operating Systems",
+        description:
+          "Understand the core concepts and functionalities of operating systems.",
+        url: "https://www.linkedin.com/learning/iot-foundations-operating-systems-fundamentals/welcome",
+        image: "image5.png",
+      },
+      {
+        title: "Computer Networks",
+        description:
+          "Discover the principles and protocols used in computer networks and network communication.",
+        url: "https://www.linkedin.com/learning/introduction-to-network-routing/new-to-it-or-routing-in-general",
+        image: "image6.png",
+      },
+      {
+        title: "Software Engineering",
+        description:
+          "Learn the principles and practices of software development and engineering.",
+        url: "https://www.linkedin.com/learning/paths/software-development-fundamentals",
+        image: "image7.png",
+      },
+      {
+        title: "Artificial Intelligence",
+        description:
+          "Explore the field of artificial intelligence and its applications in various domains.",
+        url: "https://www.linkedin.com/learning/artificial-intelligence-foundations-machine-learning-22345868/introduction-to-ai-foundations-machine-learning-course",
+        image: "image8.png",
+      },
+      {
+        title: "Cybersecurity",
+        description:
+          "Gain knowledge and skills to protect computer systems and networks from cyber threats.",
+        url: "https://www.linkedin.com/learning/cybersecurity-foundations-22006082/understanding-the-cybersecurity-frameworks-and-standards",
+        image: "image9.png",
+      },
+      {
+        title: "Mobile App Development",
+        description:
+          "Learn how to develop mobile applications for different platforms and devices.",
+        url: "https://www.linkedin.com/learning/android-development-essential-training-1-your-first-app/your-first-android-app",
+        image: "image10.png",
+      },
+    ];
+
+    const tutorialsList = document.getElementById("tutorialsList");
+
+    function displayTutorials(tutorials) {
+      const tutorialsList = document.getElementById("tutorialsList");
+      tutorialsList.innerHTML = "";
+      tutorials.forEach((tutorial) => {
+        const item = document.createElement("div");
+        item.className = "tutorial-card";
+        item.innerHTML = `
+        <img src="${tutorial.image}" alt="${tutorial.title}" class="tutorial-image">
+        <h3>${tutorial.title}</h3>
+        <p>${tutorial.description}</p>
+        <a href="${tutorial.url}" target="_blank">Learn more</a>
+      `;
+        tutorialsList.appendChild(item);
+      });
+    }
+
+    displayTutorials(tutorials);
+
+    document.getElementById("searchBar").addEventListener("input", (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const filteredTutorials = tutorials.filter(
+        (tutorial) =>
+          tutorial.title.toLowerCase().includes(searchTerm) ||
+          tutorial.description.toLowerCase().includes(searchTerm)
+      );
+      displayTutorials(filteredTutorials);
+    });
+  });
+</script>

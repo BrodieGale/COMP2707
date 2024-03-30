@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact | Computer Science Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Computer Science Hub | Contact</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="resources.html">Student Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Contact Us</h2>
+      <form id="contactForm" action="send_mail.php" method="POST">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <div class="form-submit-button" style="margin-right: 50px">
+            <button type="submit" class="send-btn">Send</button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", function (event) {
+      let isValid = true;
+      let messages = [];
+
+      const name = document.getElementById("name").value;
+      if (name.length < 3) {
+        isValid = false;
+        messages.push("Name must be at least 3 characters.");
+      }
+
+      const email = document.getElementById("email").value;
+      if (!email.includes("@")) {
+        isValid = false;
+        messages.push("Please enter a valid email.");
+      }
+
+      const message = document.getElementById("message").value;
+      if (message.length === 0) {
+        isValid = false;
+        messages.push("Message cannot be empty.");
+      }
+
+      if (!isValid) {
+        event.preventDefault();
+        displayFormMessage(messages.join("<br>"), false);
+      } else {
+        displayFormMessage(
+          "Thank you for your message! We will get back to you soon.",
+          true
+        );
+      }
+    });
+
+    function displayFormMessage(message, isSuccess) {
+      const messageContainer = document.createElement("div");
+      messageContainer.innerHTML = message;
+      messageContainer.style.color = isSuccess ? "green" : "red";
+      messageContainer.style.textAlign = "center";
+      messageContainer.style.marginTop = "20px";
+      const form = document.getElementById("contactForm");
+      form.parentNode.insertBefore(messageContainer, form.nextSibling);
+    }
+  });
+</script>
